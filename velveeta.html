@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VeLVEetA | For Furniture & Furnishings</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    }
+
+    body {
+      background: #f5f5f7;
+      color: #111827;
+      line-height: 1.7;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: 94%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* Navbar */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: #ffffffee;
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.7rem 0;
+    }
+
+    .logo-wrap {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .logo-img img {
+      height: 42px;
+      width: auto;
+    }
+
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+      font-size: 0.75rem;
+      color: #6b7280;
+    }
+
+    .logo-text strong {
+      font-size: 0.86rem;
+      letter-spacing: 0.15em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.2rem;
+      font-size: 0.9rem;
+      color: #4b5563;
+    }
+
+    .nav-links a {
+      position: relative;
+      padding-bottom: 0.15rem;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      width: 0%;
+      height: 2px;
+      background: #c8102e;
+      transition: width 0.2s ease;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      display: none;
+    }
+
+    /* Hero */
+    .hero {
+      padding: 2.5rem 0 3.5rem;
+    }
+
+    .hero-inner {
+      display: grid;
+      gap: 2.2rem;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      align-items: center;
+    }
+
+    .hero-card {
+      background: #ffffff;
+      border-radius: 1.5rem;
+      padding: 1.8rem 1.8rem;
+      box-shadow: 0 20px 55px rgba(15, 23, 42, 0.07);
+      border: 1px solid #e5e7eb;
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.2rem 0.8rem;
+      border-radius: 999px;
+      border: 1px solid #c8102e33;
+      color: #c8102e;
+      font-size: 0.78rem;
+      margin-bottom: 0.8rem;
+      background: #fff5f5;
+    }
+
+    .hero-title {
+      font-size: clamp(1.9rem, 3.3vw, 2.8rem);
+      margin-bottom: 0.6rem;
+    }
+
+    .hero-title span {
+      color: #c8102e;
+    }
+
+    .hero-sub {
+      max-width: 32rem;
+      color: #4b5563;
+      font-size: 0.95rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+      margin-bottom: 1rem;
+    }
+
+    .btn {
+      padding: 0.75rem 1.4rem;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      border: 1px solid transparent;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.3rem;
+      transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease, border 0.15s ease;
+      background: none;
+      color: inherit;
+      min-width: 150px;
+    }
+
+    .btn-primary {
+      background: #c8102e;
+      color: #ffffff;
+      font-weight: 600;
+      box-shadow: 0 12px 26px rgba(200, 16, 46, 0.35);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 18px 40px rgba(200, 16, 46, 0.45);
+    }
+
+    .btn-outline {
+      border-color: #d1d5db;
+      background: #ffffff;
+      color: #374151;
+    }
+
+    .btn-outline:hover {
+      border-color: #c8102e;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      font-size: 0.83rem;
+      color: #6b7280;
+    }
+
+    .hero-meta strong {
+      color: #c8102e;
+    }
+
+    .hero-visual {
+      border-radius: 1.4rem;
+      padding: 1rem;
+      background: #ffffff;
+      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.08);
+      border: 1px solid #e5e7eb;
+      min-height: 230px;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .hero-visual img {
+      border-radius: 1rem;
+      object-fit: cover;
+      height: 230px;
+      width: 100%;
+    }
+
+    .hero-visual p {
+      font-size: 0.85rem;
+      color: #6b7280;
+    }
+
+    /* Sections */
+    .section {
+      padding: 2.6rem 0;
+    }
+
+    .section-title {
+      font-size: 1.5rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .section-sub {
+      font-size: 0.9rem;
+      color: #6b7280;
+      margin-bottom: 1.7rem;
+    }
+
+    /* About */
+    .about-grid {
+      display: grid;
+      gap: 1.8rem;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      align-items: start;
+    }
+
+    .about-box {
+      background: #ffffff;
+      border-radius: 1rem;
+      padding: 1.2rem 1.1rem;
+      border: 1px solid #e5e7eb;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04);
+    }
+
+    .about-box h3 {
+      margin-bottom: 0.5rem;
+      font-size: 1rem;
+    }
+
+    .about-box ul {
+      list-style: none;
+      font-size: 0.88rem;
+      color: #4b5563;
+    }
+
+    .about-box li {
+      margin-bottom: 0.3rem;
+    }
+
+    /* Services */
+    .grid-3 {
+      display: grid;
+      gap: 1.1rem;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 1rem;
+      border: 1px solid #e5e7eb;
+      padding: 1.1rem 1rem;
+      box-shadow: 0 12px 35px rgba(15, 23, 42, 0.05);
+    }
+
+    .card h3 {
+      margin-bottom: 0.35rem;
+      font-size: 0.98rem;
+    }
+
+    .card p {
+      font-size: 0.86rem;
+      color: #4b5563;
+    }
+
+    .card-tag {
+      font-size: 0.76rem;
+      color: #c8102e;
+      margin-bottom: 0.3rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+    }
+
+    /* Gallery */
+    .gallery-grid {
+      display: grid;
+      gap: 0.8rem;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    }
+
+    .gallery-item {
+      position: relative;
+      border-radius: 0.8rem;
+      overflow: hidden;
+      border: 1px solid #e5e7eb;
+      background: #ffffff;
+      min-height: 150px;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .gallery-item span {
+      position: absolute;
+      bottom: 0.4rem;
+      right: 0.5rem;
+      padding: 0.2rem 0.55rem;
+      border-radius: 999px;
+      font-size: 0.72rem;
+      background: #ffffffdd;
+      color: #111827;
+    }
+
+    /* Contact */
+    .contact-grid {
+      display: grid;
+      gap: 1.4rem;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      padding: 0.65rem 0.8rem;
+      border-radius: 0.7rem;
+      border: 1px solid #d1d5db;
+      background: #ffffff;
+      color: #111827;
+      font-size: 0.88rem;
+      outline: none;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      border-color: #c8102e;
+      box-shadow: 0 0 0 1px rgba(200, 16, 46, 0.5);
+    }
+
+    .contact-form textarea {
+      resize: vertical;
+      min-height: 110px;
+    }
+
+    .contact-info {
+      font-size: 0.88rem;
+      color: #374151;
+    }
+
+    .contact-info p {
+      margin-bottom: 0.35rem;
+    }
+
+    .contact-info strong {
+      color: #c8102e;
+    }
+
+    .social-links a {
+      display: inline-block;
+      margin-left: 0.3rem;
+      font-size: 0.85rem;
+      color: #c8102e;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid #e5e7eb;
+      padding: 1.1rem 0;
+      background: #ffffff;
+      margin-top: 2rem;
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      justify-content: space-between;
+      font-size: 0.78rem;
+      color: #6b7280;
+    }
+
+    /* ===================== Responsive ===================== */
+
+    /* تابلت وأقل */
+    @media (max-width: 900px) {
+      .hero-inner,
+      .about-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 2rem;
+      }
+
+      .hero-visual img {
+        height: 210px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .nav-cta {
+        display: inline-flex;
+        padding-inline: 1.1rem;
+      }
+    }
+
+    /* موبايل صغير */
+    @media (max-width: 600px) {
+      .hero-card,
+      .hero-visual {
+        padding: 1.2rem 1.1rem;
+        border-radius: 1.1rem;
+      }
+
+      .hero-title {
+        font-size: 1.8rem;
+      }
+
+      .hero-card,
+      .hero-card * {
+        text-align: right;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+      }
+
+      .hero-actions .btn {
+        width: 100%;
+      }
+
+      .gallery-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .section {
+        padding: 2.1rem 0;
+      }
+    }
+
+    /* موبايل أصغر جدًا */
+    @media (max-width: 420px) {
+      .hero-title {
+        font-size: 1.6rem;
+      }
+
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-visual img {
+        height: 190px;
+      }
+
+      .logo-text {
+        display: none; /* نسيب اللوجو بس عشان المساحة */
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <header>
+    <div class="container nav">
+      <div class="logo-wrap">
+        <div class="logo-img">
+          <img src="velveeta-logo.jpg" alt="VeLVEetA Logo">
+        </div>
+        <div class="logo-text">
+          <strong>VeLVEetA</strong>
+          <span>FOR FURNITURE &amp; FURNISHINGS</span>
+        </div>
+      </div>
+
+      <nav class="nav-links">
+        <a href="#home">الرئيسية</a>
+        <a href="#about">عن VeLVEetA</a>
+        <a href="#services">الخدمات</a>
+        <a href="#gallery">صور من أعمالنا</a>
+        <a href="#contact">اتصل بنا</a>
+      </nav>
+
+      <button class="btn btn-outline nav-cta">تواصل معنا</button>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <main id="home" class="hero">
+    <div class="container hero-inner">
+      <section class="hero-card">
+        <div class="hero-tag">
+          <span>تصميمات فاخرة</span> • <span>تفصيل حسب الطلب</span>
+        </div>
+        <h1 class="hero-title">
+          VeLVEetA، لمسة <span>أنيقة</span> لكل غرفة في بيتك.
+        </h1>
+        <p class="hero-sub">
+          علامة متخصصة في الأثاث والمفروشات والستائر بجودة عالية وتفاصيل دقيقة.
+          نصمم وننفّذ مجالس، غرف نوم، ريسبشن، وستائر بتناسق كامل بين الألوان والخامات.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#gallery" class="btn btn-primary">شاهد أعمالنا</a>
+          <a href="#contact" class="btn btn-outline">اطلب استشارة</a>
+        </div>
+
+        <div class="hero-meta">
+          <span><strong>خبرة</strong> في تأثيث المنازل والمساحات التجارية</span>
+          <span>نساعدك من أول اختيار القماش لحد التركيب النهائي</span>
+        </div>
+      </section>
+
+      <aside class="hero-visual">
+        <img src="velveeta-hero.jpg" alt="Velveeta Living Room">
+        <p>
+          نموذج من أعمال VeLVEetA في تنسيق غرفة معيشة كاملة:
+          كنبة مريحة، ستائر، توزيع إضاءة، وتفاصيل بسيطة تعطي إحساس فخم وهادئ.
+        </p>
+      </aside>
+    </div>
+  </main>
+
+  <!-- About -->
+  <section id="about" class="section">
+    <div class="container">
+      <h2 class="section-title">عن VeLVEetA</h2>
+      <p class="section-sub">
+        FOR FURNITURE &amp; FURNISHINGS – هوية تجمع بين الأناقة، الراحة، والجودة العالية في كل قطعة.
+      </p>
+
+      <div class="about-grid">
+        <div>
+          <p>
+            VeLVEetA تقدم حلولًا متكاملة في عالم الأثاث والمفروشات. من اختيار الأقمشة
+            والتفاصيل الدقيقة، إلى تنفيذ مجالس وغرف معيشة وغرف نوم بمستويات تشطيب عالية.
+          </p>
+          <br />
+          <p>
+            نعمل على أن يكون كل مشروع يعبر عن ذوق العميل وشخصيته، مع الحفاظ على خط
+            تصميمي راقي وثابت للبراند.
+          </p>
+        </div>
+
+        <div class="about-box">
+          <h3>لماذا VeLVEetA؟</h3>
+          <ul>
+            <li>● خامات مختارة بعناية تناسب الاستخدام اليومي.</li>
+            <li>● تنفيذ تفصيل للأثاث والمجالس والستائر حسب المقاس.</li>
+            <li>● تنسيق ألوان متكامل بين القماش، الخشب، والإضاءة.</li>
+            <li>● متابعة من أول معاينة وحتى التسليم النهائي.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services" class="section">
+    <div class="container">
+      <h2 class="section-title">الخدمات الرئيسية</h2>
+      <p class="section-sub">
+        يمكن تعديل النصوص هنا بناءً على نوع الشغل المعروض في الإنستجرام.
+      </p>
+
+      <div class="grid-3">
+        <div class="card">
+          <div class="card-tag">LIVING & MAJLIS</div>
+          <h3>تصميم وتنفيذ مجالس وصالات</h3>
+          <p>
+            جلسات أرضية، مجالس كلاسيك ومودرن، مع اختيار الأقمشة والألوان بما يناسب
+            مساحة الغرفة وديكور البيت.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card-tag">CURTAINS</div>
+          <h3>ستائر بجميع تصاميمها</h3>
+          <p>
+            تفصيل ستائر بطبقات مختلفة، شيفون وبلاك آوت، مع اختيار الخامات المناسبة
+            للإضاءة وطبيعة الاستخدام.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card-tag">BEDROOMS</div>
+          <h3>غرف نوم ومفروشات سرير</h3>
+          <p>
+            تنسيق كامل لغرف النوم من ظهر السرير، السرير نفسه، والمفارش، للحصول على
+            مظهر متكامل ومريح.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section id="gallery" class="section">
+    <div class="container">
+      <h2 class="section-title">صور من أعمال VeLVEetA</h2>
+      <p class="section-sub">
+        عينات حقيقية من حساب الإنستجرام:
+        <a href="https://www.instagram.com/velveeta.a5" target="_blank" rel="noopener" style="color:#c8102e;">@velveeta.a5</a>
+      </p>
+
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <img src="velveeta-arch-living.jpg" alt="Velveeta Arch Living Room">
+          <span>Living Room</span>
+        </div>
+
+        <div class="gallery-item">
+          <img src="velveeta-bedroom.jpg" alt="Velveeta Bedroom Design">
+          <span>Bedroom</span>
+        </div>
+
+        <div class="gallery-item">
+          <img src="velveeta-curtains.jpg" alt="Velveeta Curtains & Sofas">
+          <span>Curtains</span>
+        </div>
+
+        <div class="gallery-item">
+          <img src="velveeta-storefront.jpg" alt="Velveeta Showroom">
+          <span>Showroom</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="section">
+    <div class="container">
+      <h2 class="section-title">اتصل بنا</h2>
+      <p class="section-sub">
+    
+      </p>
+
+      <div class="contact-grid">
+        <form class="contact-form">
+          <input type="text" placeholder="الاسم" required />
+          <input type="tel" placeholder="رقم الهاتف" />
+          <input type="email" placeholder="البريد الإلكتروني" />
+          <textarea placeholder="اكتب لنا عن مشروعك أو طلبك"></textarea>
+          <button type="submit" class="btn btn-primary">إرسال الرسالة</button>
+        </form>
+
+        <div class="contact-info">
+          <p><strong>الهاتف:</strong> 97534026</p>
+          <p><strong>واتساب:</strong> 97534026</p>
+          <p><strong>العنوان :</strong> الشويخ – A5 مول المنطقة الصناعية – محل رقم 31</p>
+          <p><strong>مواعيد العمل:</strong> من 10 صباحًا إلى 10 مساءً</p>
+          <p><strong>خدمة عملاء </strong> على مدار 24 ساعة</p>
+          <br />
+          <div class="social-links">
+            <strong>تابعونا:</strong>
+            <a href="https://www.instagram.com/velveeta.a5" target="_blank" rel="noopener">Instagram(https://www.instagram.com/velveeta.a5)</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-inner">
+      <span>© 2025 VeLVEetA – For Furniture &amp; Furnishings.</span>
+      <span>تصميم مبدئي قابل للتطوير إلى موقع ديناميكي كامل.</span>
+    </div>
+  </footer>
+</body>
+</html>
